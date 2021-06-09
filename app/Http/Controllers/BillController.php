@@ -99,6 +99,9 @@ class BillController extends Controller
         $bill->reciever_name = $request->reciever_name;
         $bill->reciever_address = $request->reciever_address;
         $bill->reciever_number = $request->reciever_number;
+        $bill->value = '0';
+        $bill->payment_value = 'Pending';
+        $bill->deliveredby = '';
         
         $bill->bill_no = $request->bill_no;
         $bill->total = $request->subtotal;
@@ -165,8 +168,42 @@ class BillController extends Controller
      */
     public function update(Request $request, Bill $bill)
     {
-        //
-        return;
+        
+
+        $bill = Bill::find($request->id);
+        $bill->value = $request->value;
+        if ($bill->save()) {
+            return redirect()->back()->with('sucess', 'Status Sucessfully Updated');
+        } else {
+            return back()->with('error', 'Status could not be updated');
+        }
+       
+    }
+    public function update2(Request $request, Bill $bill)
+    {
+        
+
+        $bill = Bill::find($request->id);
+        $bill->deliveredby = $request->deliveredby;
+        if ($bill->save()) {
+            return redirect()->back()->with('sucess', 'Delivery Person Sucessfully Added');
+        } else {
+            return back()->with('error', 'Delivery Person could not be Added');
+        }
+       
+    }
+    public function update3(Request $request, Bill $bill)
+    {
+        
+
+        $bill = Bill::find($request->id);
+        $bill->payment_value = $request->payment_value;
+        if ($bill->save()) {
+            return redirect()->back()->with('sucess', 'Payment Status Sucessfully Updated');
+        } else {
+            return back()->with('error', 'Payment Status could not be updated');
+        }
+       
     }
 
     /**
@@ -237,7 +274,7 @@ class BillController extends Controller
             } else {
                 $output = '
                         <tr>
-                          <td colspan="8"><center>Record Not found</center></td>
+                          <td colspan="12"><center>Record Not found</center></td>
                         </tr>
                  ';
             }
@@ -260,5 +297,48 @@ class BillController extends Controller
             return Reciever::where('reciever_number','like','%'.$request->input('term').'%')->get();
         }
         // return Shipper::all();
+    }
+
+    public function pending()
+    {
+        //
+        $bills = Bill::orderBy('created_at', 'desc')->where('value', 0)->paginate(7);
+        return view('bill.bill-pending', ['bills' => $bills, 'n' => 1]);
+    }
+    public function picked()
+    {
+        //
+        $bills = Bill::orderBy('created_at', 'desc')->where('value', 1)->paginate(7);
+        return view('bill.bill-picked', ['bills' => $bills, 'n' => 1]);
+    }
+    public function shipped()
+    {
+        //
+        $bills = Bill::orderBy('created_at', 'desc')->where('value', 2)->paginate(7);
+        return view('bill.bill-shipped', ['bills' => $bills, 'n' => 1]);
+    }
+    public function delivered()
+    {
+        //
+        $bills = Bill::orderBy('created_at', 'desc')->where('value', 3)->paginate(7);
+        return view('bill.bill-delivered', ['bills' => $bills, 'n' => 1]);
+    }
+    public function cancelled()
+    {
+        //
+        $bills = Bill::orderBy('created_at', 'desc')->where('payment_value', 'like', '%' . 'Cancelled' . '%')->paginate(7);
+        return view('bill.bill-cancelled', ['bills' => $bills, 'n' => 1]);
+    }
+    public function paid()
+    {
+        //
+        $bills = Bill::orderBy('created_at', 'desc')->where('payment_value', 'like', '%' . 'Paid' . '%')->paginate(7);
+        return view('bill.bill-paid', ['bills' => $bills, 'n' => 1]);
+    }
+    public function paypending()
+    {
+        //
+        $bills = Bill::orderBy('created_at', 'desc')->where('payment_value', 'like', '%' . 'Pending' . '%')->paginate(7);
+        return view('bill.bill-paypending', ['bills' => $bills, 'n' => 1]);
     }
 }

@@ -6,7 +6,7 @@
 			<input type="text" name="search" class="my_search float-right" id="search" placeholder="Search here">
 		</div>
 		<div class="card-body">
-			<h2 style="text-align: center;"> All Bill List</h2>
+			<h2 style="text-align: center;"> Delivered Bill List</h2>
 			<br>
 			<table class="table table-default">
 				<thead>

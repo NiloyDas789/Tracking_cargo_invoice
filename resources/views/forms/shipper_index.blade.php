@@ -46,7 +46,7 @@
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="8">
+                        <td colspan="12">
                             <center>Record Not Fond</center>
                         </td>
                     </tr>

@@ -6,7 +6,7 @@
 			<input type="text" name="search" class="my_search float-right" id="search" placeholder="Search here">
 		</div>
 		<div class="card-body">
-			<h2 style="text-align: center;"> All Bill List</h2>
+			<h2 style="text-align: center;"> Picked Bill List</h2>
 			<br>
 			<table class="table table-default">
 				<thead>
@@ -20,9 +20,7 @@
 						<th>Reciever Address</th>
 						<th>Reciever Number</th>
 						<th>Total Amount</th>
-						<th>Amount Status</th>
 						<th>Status</th>
-						<th>Delivered By</th>
 						<th>Date</th>
 						<th  colspan="2">Action</th>
 					</tr>
@@ -40,45 +38,31 @@
 						<td>{{$bill->reciever_address}}</td>
 						<td>{{$bill->reciever_number}}</td>
 						<td>{{$bill->total}}</td>
-						<td>
-
-							@include('mywork.paymentmodal')
-							
-							
-						</td>
 						<td class="d-flex">
 							<?php if ($bill->value == '0') { ?>
 							<form action="{{route('bill.update',[$bill->id])}}" method="POST">
 								{{ csrf_field() }}
 								{{-- {{ method_field('PUT') }} --}}
-							  <button name="value" class="btn btn-outline-danger" type="submit" value="1" style="width: 85px;">Pending</button>
+								<button name="value" class="btn btn-outline-danger" type="submit" value="1" style="width: 85px;">Pending</button>
 							</form>
 							<?php }elseif ($bill->value == '1') { ?>
 							<form action="{{route('bill.update',[$bill->id])}}" method="POST">
 								{{ csrf_field() }}
 								{{-- {{ method_field('PUT') }} --}}
-							  <button name="value" class="btn btn-outline-warning"  type="submit" value="2" style="width: 97px;">Picked Up</button>
+								<button name="value" class="btn btn-outline-warning"  type="submit" value="2" style="width: 97px;">Picked Up</button>
 							</form>
 							<?php }elseif ($bill->value == '2') { ?>
 							<form action="{{route('bill.update',[$bill->id])}}" method="POST">
 								{{ csrf_field() }}
 								{{-- {{ method_field('PUT') }} --}}
-							  <button name="value" class="btn btn-outline-primary"  type="submit" value="3" style="width: 85px;">Shipped</button>
+								<button name="value" class="btn btn-outline-primary"  type="submit" value="3" style="width: 85px;">Shipped</button>
 							</form>
 							<?php }else{ ?>
-							<button  class="btn btn-success" style="width: 93px;" disabled>Delivered</button>
+								<button  class="btn btn-success" style="width: 93px;" disabled>Delivered</button>
 	
 							<?php }?>
 	
 	
-						  </td>
-						  <td>
-								<form action="{{route('bill.update2',[$bill->id])}}" method="POST">
-									{{ csrf_field() }}
-									<input style="width: 65px;" type="text" value="{{$bill->deliveredby}}" name="deliveredby">
-									
-							  	</form>
-							  
 						  </td>
 						<td>{{$bill->date}}</td>
 						<td><a href="{{route('billprint', $bill->id)}}"><i class="fas fa-print"></i></a></td>

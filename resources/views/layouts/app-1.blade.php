@@ -76,20 +76,48 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             View Bill
                         </a>
-                        <a class="nav-link" href="{{route('shipper.create')}}">
+                        <a class="nav-link" href="{{route('bill.pending')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-spinner"></i></div>
+                            View Pending Bill
+                        </a>
+                        <a class="nav-link" href="{{route('bill.picked')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                            View Picked Up Bill
+                        </a>
+                        <a class="nav-link" href="{{route('bill.shipped')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shipping-fast"></i></div>
+                            View Shipped Bill
+                        </a>
+                        <a class="nav-link" href="{{route('bill.delivered')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                            View Delivered Bill
+                        </a>
+                        <a class="nav-link" href="{{route('bill.cancelled')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                            View Cancelled Bill
+                        </a>
+                        <a class="nav-link" href="{{route('bill.paid')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                            View Paid Bill
+                        </a>
+                        <a class="nav-link" href="{{route('bill.paypending')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
+                            View Payment Pending Bill
+                        </a>
+                        {{-- <a class="nav-link" href="{{route('shipper.create')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Create Shipper
-                        </a>
+                        </a> --}}
                         <a class="nav-link" href="{{route('shipper.index')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-truck-loading"></i></div>
                             Veiw Shipper Data
                         </a>
-                        <a class="nav-link" href="{{route('reciever.create')}}">
+                        {{-- <a class="nav-link" href="{{route('reciever.create')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Create Reciever
-                        </a>
+                        </a> --}}
                         <a class="nav-link" href="{{route('reciever.index')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-receipt"></i></div>
                             Veiw Recievers Data
                         </a>
                     </div>

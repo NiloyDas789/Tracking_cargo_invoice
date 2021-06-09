@@ -22,6 +22,9 @@ class CreateBillsTable extends Migration
             $table->string('reciever_name');
             $table->string('reciever_address');
             $table->string('reciever_number');
+            $table->string('payment_value');
+            $table->string('value');
+            $table->string('deliveredby');
             
             $table->bigInteger('total');
             $table->string('total_string');
