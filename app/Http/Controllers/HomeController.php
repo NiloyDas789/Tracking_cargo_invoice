@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Bill;
+use App\User;
+use App\Reciever;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\User;
 
 class HomeController extends Controller
 {
@@ -25,7 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $paid = Bill::where('payment_value', 'like', '%' . 'Paid' . '%')->count();
+        $paypending = Bill::where('payment_value', 'like', '%' . 'Pending' . '%')->count();
+        $delivered = Bill::where('value', 3)->count();
+        $customer=Reciever::all()->count();
+        return view('home', ['paid' => $paid, 'paypending' => $paypending,  'delivered' => $delivered, 'customer' => $customer,'n' => 1]);
+        
     }
     public function profile()
     {

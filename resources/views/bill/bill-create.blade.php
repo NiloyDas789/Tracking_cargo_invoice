@@ -77,59 +77,20 @@
             </div>
             <div class="col">
               <h3 style="border-bottom: 1px solid;
-              font-size: 16px;     background-image: linear-gradient(to right, rgb(1 47 152), rgb(255 0 0 / 0%));
+              font-size: 16px;     background-image: linear-gradient(to right, rgb(21 2 123), rgb(255 0 0 / 0%));
     color: white; padding: 5px; margin-top: 10px;" >Head Office </h3>
               <span>8 fordham st,london,e1 1hs <br> phone: 0207 247 8878, 0207 247 7770</span>
               <h3 style="border-bottom: 1px solid;
-              font-size: 16px;     background-image: linear-gradient(to right, rgb(1 47 152), rgb(255 0 0 / 0%));
+              font-size: 16px;     background-image: linear-gradient(to right, rgb(21 2 123), rgb(255 0 0 / 0%));
     color: white; padding: 5px; margin-top: 10px;">Express & Collection Point </h3>
               <span>8 fordham st,london,e1 1hs <br> phone: 0207 247 8878, 0207 247 7770</span>
               <br><span>email: info@jmgcargo.com
               </span>
             </div>
             <div class="col">
-              <div>
-                <h2 style="    color: white;    background: #268fff;    padding: 8px;
-              text-align: center;
-              ">Invoice</h2>
-              </div>
-              <div>
-                <table>
-                  <tr>
-                    <td>Invoice Date : </td>
-                    <td><input type="text" name="date" id="my_date" readonly="readonly" @if($date_type==1)
-                        value="{{$date_ne['y'].'-'.$date_ne['m'].'-'.$date_ne['d']}}" @endif @if($date_type==0)
-                        value="{{date('m-d-Y')}}" @endif readonly="readonly" class="date"></label></td>
-    
-                  </tr>
-                  <tr>
-                    <td>Flight Date : </td>
-                    <td>Moe</td>
-    
-                  </tr>
-                  <tr>
-                    <td>MAWB NO : </td>
-                    <td>Dooley</td>
-    
-                  </tr>
-                  <tr>
-                    <td>HAWB NO : </td>
-                    <td>05/04/2021</td>
-    
-                  </tr>
-                  <tr>
-                    <td>Flight NO : </td>
-                    <td>Moe</td>
-    
-                  </tr>
-                  <tr>
-                    <td>Invoice NO : </td>
-                    <td><input type="text" name="bill_no" id="bill_no" readonly="readonly" value="{{$bill_no}}"
-                        class="date"></label></td>
-    
-                  </tr>
-                </table>
-              </div>
+
+              <img style="width: 160px; height: 210px; float: right;" src="{{asset('invoice.png')}}" alt="">
+              
             </div>
     
     
@@ -138,7 +99,7 @@
           <div class="row" style="margin: 0px;">
             <div class="col" style="width: 200px;">
               <div>
-                <h4 style="     color: white;    background: #268fff;    padding: 8px;
+                <h4 style="     color: white;    background: #4472c4;    padding: 8px;
                 text-align: center;
                 ">Shipper </h4>
                 {{-- <div>
@@ -190,10 +151,11 @@
           </div>
         </div>
         <div class="col" style="width: 200px;">
-          <div>
-            <h4 style="     color: white;    background: #268fff;    padding: 8px;
+            <div>
+              <h4 style="     color: white;    background: #4472c4;    padding: 8px;
                 text-align: center;
-                ">Shipped to</h4>
+                ">Shipped to
+              </h4>
             <div>
     
               <div>
@@ -251,13 +213,32 @@
         </div>
         <div class="col" style="width: 200px;">
           <div>
-            <h4 style="     color: white;    background: #268fff;    padding: 8px;
-                text-align: center;
-                ">For collection please contact</h4>
+            <h2 style="    color: white;    background: #4472c4;    padding: 8px;
+          text-align: center;
+          ">Invoice</h2>
           </div>
           <div>
-            <span> Mr. Lokman , Mr. Sulaman , Mr. Salim </span>
-            <span>Address</span>
+            <table>
+              <tr>
+                <td style= "    border: .5px solid #4472c4;" >Invoice Date : </td>
+                <td style= "    border: .5px solid #4472c4;"><input type="text" name="date" id="my_date" readonly="readonly" @if($date_type==1)
+                    value="{{$date_ne['y'].'-'.$date_ne['m'].'-'.$date_ne['d']}}" @endif @if($date_type==0)
+                    value="{{date('m-d-Y')}}" @endif readonly="readonly" class="date"></label></td>
+
+              </tr>
+              
+              <tr>
+                <td style= "    border: .5px solid #4472c4;">Invoice NO : </td>
+                <td style= "    border: .5px solid #4472c4;"><input type="text" name="bill_no" id="bill_no" readonly="readonly" value="{{$bill_no}}"
+                    class="date"></label></td>
+
+              </tr>
+              <tr>
+                <th colspan="2" style= "    border: .5px solid #4472c4;height: 94px;text-align: center; width:390px; background-color:#4472c430" >
+                  Home Delivery
+                </th>
+              </tr>
+            </table>
           </div>
     
         </div>
@@ -393,6 +374,26 @@
 
     <div class="row">
       <div class="container">
+        <table  class="table table-bordered table-hover dataTable dtr-inline" style= "border: 1px solid #00000069">
+          <tr>
+            <th style="    width: 200px;" >Comments</th>
+            <td style= "border: .5px solid #00000069"></td>
+            
+          </tr>
+          <tr>
+            <th style="    width: 200px;">Additional Details</th>
+            
+            <td style= "border: 1px solid #00000069"></td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+
+    
+
+    <div class="row">
+      <div class="container">
         <table class="table table-bordered table-hover dataTable dtr-inline" style="    border-style: solid;
         border-width: thin;
         border-color: rgb(0 123 255 / 72%);">
@@ -406,7 +407,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr style="height: 100px;">
               
               <td></td>
               <td> <b> BANK TRANSFER</b></td>
@@ -421,11 +422,11 @@
 
 
     </div>
-    {{-- <div class="card-footer">
+    <div class="card-footer">
       <div class="row">
-        <label class="float-right" style="margin-left: 70%;">Sellesr's Signature</label>
+        <img style="    width: 101%;height: 69px;" src="{{asset('footer.png')}}" alt="">
       </div>
-    </div> --}}
+    </div>
     </div>
     </div>
     <div class="row">

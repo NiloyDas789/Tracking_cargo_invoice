@@ -20,7 +20,7 @@
 						<th>Reciever Address</th>
 						<th>Reciever Number</th>
 						<th>Total Amount</th>
-						<th>Status</th>
+						<th>Delivery Status</th>
 						<th>Date</th>
 						<th  colspan="2">Action</th>
 					</tr>

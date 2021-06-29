@@ -41,6 +41,7 @@ Route::post('settings/{setting}', 'SettingController@update')->name('settings.up
 
 Route::resource('shipper', 'ShipperController');
 Route::resource('reciever', 'RecieverController');
+Route::resource('dashboard', 'DashboardController');
 
 
 

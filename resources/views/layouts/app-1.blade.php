@@ -13,6 +13,8 @@
     <link href="{{ asset('bootstrap/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/my.css') }}">
     <link href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('admin')}}/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     
 
 
@@ -58,72 +60,9 @@
         </ul>
     </nav>
     <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="{{route('home')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Home
-                        </a>
-                        <div class="sb-sidenav-menu-heading">Bill Managemt</div>
-                        <a class="nav-link" href="{{route('bill-index')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Bill Generation
-                        </a>
-                        <a class="nav-link" href="{{route('bill.index')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            View Bill
-                        </a>
-                        <a class="nav-link" href="{{route('bill.pending')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-spinner"></i></div>
-                            View Pending Bill
-                        </a>
-                        <a class="nav-link" href="{{route('bill.picked')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
-                            View Picked Up Bill
-                        </a>
-                        <a class="nav-link" href="{{route('bill.shipped')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-shipping-fast"></i></div>
-                            View Shipped Bill
-                        </a>
-                        <a class="nav-link" href="{{route('bill.delivered')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
-                            View Delivered Bill
-                        </a>
-                        <a class="nav-link" href="{{route('bill.cancelled')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
-                            View Cancelled Bill
-                        </a>
-                        <a class="nav-link" href="{{route('bill.paid')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
-                            View Paid Bill
-                        </a>
-                        <a class="nav-link" href="{{route('bill.paypending')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-dolly"></i></div>
-                            View Payment Pending Bill
-                        </a>
-                        {{-- <a class="nav-link" href="{{route('shipper.create')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Create Shipper
-                        </a> --}}
-                        <a class="nav-link" href="{{route('shipper.index')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-truck-loading"></i></div>
-                            Veiw Shipper Data
-                        </a>
-                        {{-- <a class="nav-link" href="{{route('reciever.create')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Create Reciever
-                        </a> --}}
-                        <a class="nav-link" href="{{route('reciever.index')}}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-receipt"></i></div>
-                            Veiw Recievers Data
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
+
+      @include('mywork.navbar')
+        
         <div id="layoutSidenav_content">
             <main>
                 @include('partial.errors')
@@ -141,11 +80,11 @@
         </footer>
     </div>
     </div>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script> --}}
     <script src="{{ asset('jquery/jquery.js') }}"></script>
     <script type="text/javascript" src="{{asset('bootstrap/printThis.js')}}"></script>
     <script src="{{asset('bootstrap/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
-    <script src="{{asset('bootstrap/scripts.js')}}"></script>
+    
     <!--  <script src="{{asset('bootstrap/Chart.min.js')}}" crossorigin="anonymous')}}"></script>
     <script src="{{asset('bootstrap/chart-area-demo.js')}}"></script>
     <script src="{{asset('bootstrap/chart-bar-demo.js')}}"></script> -->
@@ -157,6 +96,8 @@
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
         integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous">
     </script>
+    <script src="{{asset('admin')}}/js/adminlte.min.js"></script>
+    <script src="{{asset('bootstrap/scripts.js')}}"></script>
     @yield('script')
 </body>
 
